@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Etudiant;
+use App\Models\Formation;
+
+class Inscription extends Model
+{
+    protected $fillable = [
+        'etudiant_id',
+        'formation_id',
+        'date_inscription'
+    ];
+
+    public function etudiant()
+    {
+        return $this->belongsTo(Etudiant::class);
+    }
+
+    public function formation()
+    {
+        return $this->belongsTo(Formation::class);
+    }
+}
