@@ -137,19 +137,16 @@ auth:sanctum
 
 ## Login API
 
-![Login](screenshots/login.png)
+![Login](./screenshots/login.png)
 
----
+## Formations
 
-## Liste des formations
+![Formations](./screenshots/formations.png)
 
-![Formations](screenshots/formations.png)
+## Routes
 
----
+![Routes](./screenshots/routes.png)
 
-## Routes Laravel
-
-![Routes](screenshots/routes.png)
 
 # Auteur
 
