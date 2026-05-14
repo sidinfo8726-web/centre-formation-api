@@ -7,11 +7,12 @@ use App\Models\Inscription;
 
 class InscriptionController extends Controller
 {
-    // Afficher toutes les inscriptions
+    // Liste des inscriptions
     public function index()
-{
-    return Inscription::with('etudiant', 'formation')->get();
-}
+    {
+        return Inscription::with('etudiant', 'formation')->get();
+    }
+
     // Ajouter inscription
     public function store(Request $request)
     {
@@ -20,30 +21,29 @@ class InscriptionController extends Controller
             'formation_id' => $request->formation_id,
             'date_inscription' => $request->date_inscription,
         ]);
+
         return response()->json($inscription, 201);
     }
+
+    // Modifier inscription
+    public function update(Request $request, $id)
+    {
+        $inscription = Inscription::findOrFail($id);
+
+        $inscription->update($request->all());
+
+        return response()->json($inscription);
+    }
+
+    // Supprimer inscription
+    public function destroy($id)
+    {
+        $inscription = Inscription::findOrFail($id);
+
+        $inscription->delete();
+
+        return response()->json([
+            'message' => 'Inscription supprimée'
+        ]);
+    }
 }
-public function update(Request $request, $id)
-{
-    $inscription = Inscription::findOrFail($id);
-
-    $inscription->update($request->all());
-
-    return response()->json($inscription);
-}
-
-public function destroy($id)
-{
-    $inscription = Inscription::findOrFail($id);
-
-    $inscription->delete();
-
-    return response()->json([
-        'message' => 'Inscription supprimée'
-    ]);
-    $request->validate([
-    'titre' => 'required',
-    'description' => 'required',
-    'prix' => 'required'
-]);
-} 

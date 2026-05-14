@@ -133,6 +133,23 @@ auth:sanctum
 ```
 
 ---
+# Captures d'écran
+
+## Login API
+
+![Login](screenshots/login.png)
+
+---
+
+## Liste des formations
+
+![Formations](screenshots/formations.png)
+
+---
+
+## Routes Laravel
+
+![Routes](screenshots/routes.png)
 
 # Auteur
 
