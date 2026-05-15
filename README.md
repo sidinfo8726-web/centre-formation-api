@@ -133,7 +133,7 @@ auth:sanctum
 ```
 
 ---
-## Login API
+## API de connexion
 
 ![Login](screenshots/login.png)
 
