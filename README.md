@@ -133,20 +133,17 @@ auth:sanctum
 ```
 
 ---
-# Captures d'écran
-
 ## Login API
 
-![Login](./screenshots/login.png)
+![Login](screenshots/login.png)
 
 ## Formations
 
-![Formations](./screenshots/formations.png)
+![Formations](screenshots/formations.png)
 
 ## Routes
 
-![Routes](./screenshots/routes.png)
-
+![Routes](screenshots/routes.png)
 
 # Auteur
 
