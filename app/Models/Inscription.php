@@ -3,24 +3,26 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Etudiant;
-use App\Models\Formation;
+use App\Models\Paiement;
 
 class Inscription extends Model
 {
     protected $fillable = [
-        'etudiant_id',
+        'nom',
+        'prenom',
+        'email',
+        'telephone',
         'formation_id',
         'date_inscription'
     ];
 
-    public function etudiant()
-    {
-        return $this->belongsTo(Etudiant::class);
-    }
-
     public function formation()
     {
         return $this->belongsTo(Formation::class);
+    }
+
+    public function paiements()
+    {
+        return $this->hasMany(Paiement::class);
     }
 }

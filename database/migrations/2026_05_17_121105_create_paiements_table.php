@@ -11,11 +11,20 @@ return new class extends Migration
      */
     public function up(): void
 {
-    Schema::create('formations', function (Blueprint $table) {
+    Schema::create('paiements', function (Blueprint $table) {
+
         $table->id();
-        $table->string('titre');
-        $table->text('description');
-        $table->decimal('prix', 8, 2);
+
+        $table->foreignId('inscription_id')
+      ->constrained()
+      ->onDelete('cascade');
+
+        $table->decimal('montant', 8, 2);
+
+        $table->string('statut')->default('payé');
+
+        $table->date('date_paiement');
+
         $table->timestamps();
     });
 }
@@ -25,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('formations');
+        Schema::dropIfExists('paiements');
     }
 };

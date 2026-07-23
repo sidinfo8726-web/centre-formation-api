@@ -10,7 +10,7 @@ class FormationController extends Controller
     // AFFICHER
     public function index()
     {
-        return Formation::all();
+        return response()->json(Formation::all());
     }
 
     // AJOUTER
@@ -34,15 +34,20 @@ class FormationController extends Controller
     // SUPPRIMER
     public function destroy($id)
     {
-        Formation::destroy($id);
+        $formation = Formation::findOrFail($id);
 
+    if ($formation->inscriptions()->exists()) {
         return response()->json([
-            'message' => 'Formation supprimée'
-        ]);
-    $request->validate([
-    'titre' => 'required',
-    'description' => 'required',
-    'prix' => 'required'
-]);
+            'message' => 'Impossible de supprimer cette formation car elle possède des inscriptions.'
+        ], 400);
+    }
+
+    $formation->delete();
+
+    return response()->json([
+        'message' => 'Formation supprimée.'
+    ]);
+}
+    
     }
 }
